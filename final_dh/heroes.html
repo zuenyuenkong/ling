@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/icon_DH.jpg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- css -->
+    <link href="css/tooplate-barista.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vegas.min.css" rel="stylesheet">
+    <link href="css/long_march.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+
+    <!-- js -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/vegas.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src='js/plotly.js'></script>
+    <script src="js/d3_v4.js"></script>
+    <script src="js/d3-scale.js"></script>
+    <script src="js/Homepage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- 引入 Leaflet CSS -->
+
+</head>
+<main>
+    <div class="navbar">
+        <a href="Main.html">Homepage</a>
+        <a href="longmarch.html">Longmarch</a>
+        <a href="battles.html">Battles</a>
+        <a href="heroes.html" class="active">Heroes</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a href="spirit.html">Spirit</a>
+        <a href="about.html">About</a>
+    </div>
+
+
+    <section id="introduction" class="introduction-section">
+        <div class="introduction-content fade-in"
+            style="margin-bottom: 10px;display: flex;align-items: center;justify-content: flex-start;">
+            <div>
+                <h2>周恩来</h2>
+                <h2>Zhou Enlai</h2>
+            </div>
+            <div style="margin-right: 20px;"><img src="images/heroes1.png" alt=""
+                    style="margin-right: 20px;  width: 500px;height: auto;/"></div>
+            <div>
+                <p>
+                    Biography: Zhou Enlai, born on March 5, 1898, in Huai'an, Jiangsu, was one of the key leaders of the
+                    Chinese Communist Party, a principal founder of the People's Liberation Army, and a founding father
+                    of the People's Republic of China.
+                    <br><br>
+                    Early Life: Zhou Enlai was involved in the founding of the Chinese Communist Party and held
+                    significant positions within the Red Army.
+                    <br><br>
+                    Long March Journey: During the Long March, Zhou Enlai was responsible for supervising the
+                    implementation of military preparation plans. He maintained a firm belief in the revolutionary
+                    victory of the Red Army and upheld strict discipline and an optimistic revolutionary spirit in
+                    extremely harsh conditions.
+                    <br><br>
+                    Outstanding Contributions and Heroic Deeds: Zhou Enlai was particularly busy during the Long March,
+                    bearing major responsibilities for the Military Commission. At each stop, he would have telegraph
+                    lines set up to receive messages from various corps and hang maps to decide on marching and combat
+                    routes. While crossing the grasslands, he fell ill due to exhaustion and malnutrition, suffering
+                    from a persistent high fever of 40°C and remaining unconscious for days. Despite this, he continued
+                    to work until soldiers carried him out of the grasslands. Zhou Enlai's perseverance and
+                    determination greatly inspired the morale and fighting spirit of the Red Army.
+                </p>
+            </div>
+        </div>
+
+        <div class="introduction-content fade-in"
+            style="margin-bottom: 10px;display: flex;align-items: center;justify-content: flex-start;">
+            <div>
+                <h2>朱德</h2>
+                <h2>Zhu De</h2>
+            </div>
+            <div style="margin-right: 20px;"><img src="images/heroes2.png" alt=""
+                    style="margin-right: 20px;  width: 500px;height: auto;/"></div>
+            <div>
+                <p>
+                    Biography: Zhu De, born in 1886, was one of the principal founders and leaders of the Chinese
+                    Communist Party, the People's Liberation Army, and the People's Republic of China.
+                    <br><br>
+                    Early Life: Zhu De participated in the Xinhai Revolution in his early years, later joining the
+                    Chinese Communist Party. He played a leading role in the Nanchang Uprising and was one of the main
+                    leaders of the Red Army.
+                    <br><br>
+                    Long March Journey: During the Long March, Zhu De served as the Commander-in-Chief of the Red Army,
+                    responsible for directing its military operations.
+                    <br><br>
+                    Outstanding Contributions and Heroic Deeds: Zhu De demonstrated steadfast determination and fearless
+                    military prowess during the Long March. He excelled in strategic planning and often led by example
+                    on the battlefield. When the Red Army faced severe food shortages, Zhu De organized the troops to
+                    gather wild vegetables for sustenance and compiled a booklet titled "Guidelines for Eating Wild
+                    Vegetables," distributing it to each company, showing his deep care for the soldiers.
+                </p>
+            </div>
+        </div>
+
+        <div class="introduction-content fade-in"
+            style="margin-bottom: 10px;display: flex;align-items: center;justify-content: flex-start;">
+            <div>
+                <h2>陈树湘</h2>
+                <h2>Chen Shuxiang</h2>
+            </div>
+            <div style="margin-right: 20px;"><img src="images/heroes3.png" alt=""
+                    style="margin-right: 20px;  width: 500px;height: auto;/"></div>
+            <div>
+                <p>
+                    Biography: Chen Shuxiang, born in 1905 in Changsha, Hunan, was the commander of the 34th Division of
+                    the Red Army.
+                    <br><br>
+                    Early Life: After a severe drought in his hometown, Chen fled to Changsha with his father. There, he
+                    met Mao Zedong and Yang Kaihui's family, and under their influence, he joined the revolution.
+                    <br><br>
+                    Long March Journey: In October 1934, Chen Shuxiang led his troops in the Long March of the Central
+                    Red Army, serving as the rear guard for the entire army.
+                    <br><br>
+                    Outstanding Contributions and Heroic Deeds: During the Battle of the Xiang River, Chen Shuxiang led
+                    his division in a fierce battle against an enemy force ten times their size for four days and
+                    nights, suffering heavy casualties. Despite being severely wounded in the abdomen, he continued to
+                    command the battle. Ultimately, after being captured, he seized an opportunity, endured excruciating
+                    pain, and pulled out his intestines from the wound, breaking them to sacrifice himself heroically at
+                    the age of 29.
+                </p>
+            </div>
+        </div>
+
+        <div class="introduction-content fade-in"
+            style="margin-bottom: 10px;display: flex;align-items: center;justify-content: flex-start;">
+            <div>
+                <h2>贺子珍</h2>
+                <h2>He Zizhen</h2>
+            </div>
+            <div style="margin-right: 20px;"><img src="images/heroes4.png" alt=""
+                    style="margin-right: 20px;  width: 500px;height: auto;/"></div>
+            <div>
+                <p>
+                    Biography: He Zizhen, born in 1909 in Yongxin, Jiangxi, was the first female Communist Party member
+                    in Jinggangshan.
+                    <br><br>
+                    Early Life: He Zizhen grew up amidst the turbulent times of the Great Revolution and matured in the
+                    fierce battles of Jinggangshan.
+                    <br><br>
+                    Long March Journey: In October 1934, after the failure of the fifth counter-encirclement campaign,
+                    the Central Red Army began the Long March, and He Zizhen embarked on this arduous journey alongside
+                    Mao Zedong.
+                    <br><br>
+                    Outstanding Contributions and Heroic Deeds: In early April 1935, one evening, the female Red Army
+                    soldiers had just arrived at Wulipai near Pan County, Guizhou, exhausted. Suddenly, enemy planes
+                    attacked. He Zizhen was injured by shellfire while rescuing wounded soldiers. A guard rode to the
+                    General Health Department to bring Dr. Li Zhi for her treatment. Dr. Li first administered a
+                    hemostatic injection to He Zizhen and then conducted a full examination. She discovered 17 shrapnel
+                    pieces of varying sizes and depths in He Zizhen's head, torso, and limbs. The surgery began without
+                    any anesthesia. He Zizhen was drenched in sweat from the pain, tears welling in her eyes, yet she
+                    remained silent. The shrapnel near the surface was eventually removed piece by piece, but those
+                    deeply embedded became a permanent reminder of the war.
+                </p>
+            </div>
+        </div>
+
+        <div class="introduction-content fade-in"
+            style="margin-bottom: 10px;display: flex;align-items: center;justify-content: flex-start;">
+            <div>
+                <h2>余秋里</h2>
+                <h2>Yu Qiuli</h2>
+            </div>
+            <div style="margin-right: 20px;"><img src="images/heroes5.png" alt=""
+                    style="margin-right: 20px;  width: 500px;height: auto;/"></div>
+            <div>
+                <p>
+                    Yu Qiuli was an outstanding leader in political work for our army, a founder of the new China's
+                    petroleum industry, and an exceptional leader in economic affairs. During a battle in the Long
+                    March, he lost his left arm but persevered with his remaining arm until the revolution's victory. In
+                    1955, he was awarded the rank of Lieutenant General and was known as the "One-Armed General," the
+                    only general of his rank to have served as Vice Premier.
+                    <br><br>
+                    In one campaign, Yu Qiuli's left arm was pierced by a bullet, exposing bone and tendons, and
+                    bleeding profusely. The war conditions were extremely harsh, with a severe lack of medical supplies,
+                    making timely surgery impossible. He had to endure the pain and continue north with the troops.
+                    <br><br>
+                    During the march, his wound became infected and was infested with maggots. When the pain was
+                    unbearable, he would soak his injured arm in cold water to relieve it. It wasn't until they emerged
+                    from the grasslands that a doctor in Longnan used a razor to remove the decayed flesh and performed
+                    an amputation with an ordinary saw blade. Through his actions, he set an example for the Red Army
+                    soldiers, demonstrating fearless heroism.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="site-footer">
+        <div class="container_foot">
+            <div class="footer-widgets">
+                <div class="widget about-changzheng">
+                    <h5>Long March Spirit</h5>
+                    <p>Long March route map</p>
+                </div>
+                <div class="widget useful-links">
+                    <h5>Useful Links</h5>
+                    <ul>
+                        <li><a href="#">Long March History</a>&nbsp&nbsp&nbsp<a href="#">Commemorative activities</a>
+                        </li>
+                        <li><a href="#">Educational Resources</a>&nbsp&nbsp&nbsp<a href="#">cultural protection</a></li>
+                    </ul>
+                </div>
+                <div class="widget contact-info">
+                    <h5>Contact Us</h5>
+                    <p>Email：24124976g@connect.polyu.hk</p>
+                    <p>Phone：+86 123 4567 8901</p>
+                    <p>Adress：中国，香港，香港理工大学</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 肖邦. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</main>
