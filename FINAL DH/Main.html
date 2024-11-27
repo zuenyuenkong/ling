@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/icon_DH.jpg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* 设置地图的大小 */
+        #map {
+            height: 800px;
+            /* 设置高度 */
+            width: 100%;
+            /* 设置宽度 */
+        }
+    </style>
+
+    <!-- css -->
+    <link href="css/tooplate-barista.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vegas.min.css" rel="stylesheet">
+    <link href="css/long_march.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+
+    <!-- js -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/vegas.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src='js/plotly.js'></script>
+    <script src="js/d3_v4.js"></script>
+    <script src="js/d3-scale.js"></script>
+    <script src="js/Homepage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- 引入 Leaflet CSS -->
+
+</head>
+<main>
+    <div class="navbar">
+        <a href="#home" class="active">Homepage</a>
+        <a href="longmarch.html">Longmarch</a>
+        <a href="battles.html">Battles</a>
+        <a href="heroes.html">Heroes</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a href="spirts.html">Spirit</a>
+        <a href="about.html">About</a>
+    </div>
+
+    <section id="page_1" class=" hero-section d-flex justify-content-center align-items-center" style="padding: 0;">
+        <div class="container">
+            <div class="align-items-center">
+            </div>
+        </div>
+        <div class="hero-slides" style="filter: brightness(60%); "></div>
+
+        <script>
+            $(function () {
+                $('.hero-slides').vegas({
+                    slides: [
+                        { src: 'images/Banner01.jpeg' },
+                        { src: 'images/Banner02.png' },
+                    ],
+                    timer: false,
+                    animation: 'kenburns',
+                });
+            });
+        </script>
+    </section>
+
+    <section id="introduction" class="introduction-section">
+        <div class="introduction-content fade-in">
+            <h2>Introduction</h2>
+            <p>
+                The Long March was a great strategic transfer carried out by the Chinese Workers' and Peasants' Red Army
+                from 1934 to 1936. It spanned thousands of kilometers and experienced harsh natural environments and
+                being tightly pursued by the enemy.
+                <br><br>
+                This is not only a military feat, but also an event of profound significance in the history of the
+                Chinese revolution. The Long March symbolizes firm belief and unyielding fighting spirit, inspiring
+                countless descendants and becoming a powerful driving force for China's revolutionary cause and national
+                construction.
+            </p>
+            <a href="#route" class="learn-more-button">Learn more</a>
+        </div>
+    </section>
+
+
+    <h1>Long March route map</h1>
+    <div id="map"></div>
+
+    <!-- 引入 Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // 初始化地图
+        const map = L.map('map').setView([30.0, 108.0], 5); // 设置地图中心和缩放级别
+
+        // 添加 OSM 图层
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // 长征路线的坐标点及对应的关键地点信息
+        const routeData = [
+            { coords: [26.5, 114.5], name: "瑞金", description: "长征的出发地，红军在这里建立了中央革命根据地。" },
+            { coords: [25.6, 114.9], name: "赣州", description: "重要的交通枢纽，红军经过此地时曾遭遇敌军围追。" },
+            { coords: [27.2, 114.1], name: "永新", description: "长征途中的重要站点，红军在这里进行了数次战斗。" },
+            { coords: [26.6, 113.4], name: "湘江", description: "红军在此跨越湘江，战斗十分惨烈。" },
+            { coords: [27.5, 109.9], name: "怀化", description: "长征途中的重要地标，红军在这里获得了地方支持。" },
+            { coords: [27.0, 105.0], name: "遵义", description: "遵义会议召开地，标志着红军在长征中的重大转折。" },
+            { coords: [28.2, 105.6], name: "赤水", description: "红军在这里巧妙摆脱敌军追击。" },
+            { coords: [30.0, 108.5], name: "毛儿盖", description: "长征的最后阶段，标志着红军接近胜利。" }
+        ];
+
+        // 绘制路线
+        const routeCoordinates = routeData.map(point => point.coords); // 提取坐标
+        const routePath = L.polyline(routeCoordinates, {
+            color: 'red',
+            weight: 2,
+            opacity: 0.7
+        }).addTo(map);
+
+        // 在每个点上添加标记
+        routeData.forEach((point, index) => {
+            L.marker(point.coords).addTo(map)
+                .bindPopup(`<strong>${point.name}</strong><br>${point.description}`) // 在每个标记上绑定弹出框
+                .openPopup();
+        });
+
+        // 适应地图显示整个路线
+        map.fitBounds(routePath.getBounds());
+    </script>
+
+    <!-- 数据分析表格 -->
+    <div class="chart-container">
+        <h2 style="text-align: center;font-size: 24px">敌我双方人数变化</h2>
+        <canvas id="militaryChart"></canvas>
+    </div>
+    <script>
+        const ctx = document.getElementById('militaryChart').getContext('2d');
+        const militaryChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['开始', '遵义会议', '四渡赤水', '巧渡金沙江', '强渡大渡河', '飞夺泸定桥', '爬雪山', '过草地', '会宁会师'],
+                datasets: [{
+                    label: '红军人数',
+                    data: [100000, 80000, 70000, 60000, 50000, 40000, 30000, 20000, 10000],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }, {
+                    label: '敌方军队人数',
+                    data: [500000, 450000, 400000, 350000, 300000, 250000, 200000, 150000, 100000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <div class="chart-container">
+        <h2 style="text-align: center;font-size: 24px">敌我装备情况变化</h2>
+        <canvas id="equipmentChart"></canvas>
+    </div>
+    <script>
+        const ctx_1 = document.getElementById('equipmentChart').getContext('2d');
+        const equipmentChart = new Chart(ctx_1, {
+            type: 'line',
+            data: {
+                labels: ['出发', '遵义会议', '四渡赤水', '巧渡金沙江', '强渡大渡河', '飞夺泸定桥', '爬雪山', '过草地', '会宁会师'],
+                datasets: [{
+                    label: '红军装备情况',
+                    data: [25000, 24000, 23000, 22000, 21000, 20000, 19000, 18000, 17000],
+                    fill: false,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }, {
+                    label: '敌方装备情况',
+                    data: [100000, 95000, 90000, 85000, 80000, 75000, 70000, 65000, 60000],
+                    fill: false,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+    <div class="container" style=" display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 1000px;">
+        <div class="chart-container" style="width: 40%;">
+            <h2>减员比例</h2>
+            <canvas id="casualtyChart"></canvas>
+        </div>
+        <div class="chart-container" style="width: 40%;">
+            <h2>将领年龄段比例</h2>
+            <canvas id="ageGroupChart"></canvas>
+        </div>
+    </div>
+    <script>
+        const casualtyCtx = document.getElementById('casualtyChart').getContext('2d');
+        const casualtyChart = new Chart(casualtyCtx, {
+            type: 'pie',
+            data: {
+                labels: ['战斗牺牲', '疾病饥饿', '其他原因'],
+                datasets: [{
+                    label: '减员比例',
+                    data: [70, 20, 10], // 假设数据，实际应根据历史数据调整
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                }
+            }
+        });
+
+        const ageGroupCtx = document.getElementById('ageGroupChart').getContext('2d');
+        const ageGroupChart = new Chart(ageGroupCtx, {
+            type: 'pie',
+            data: {
+                labels: ['20岁以下', '21-30岁', '31-40岁', '41岁以上'],
+                datasets: [{
+                    label: '将领比例',
+                    data: [20, 50, 25, 5], // 假设数据，实际应根据历史数据调整
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(199, 233, 68, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(199, 233, 68, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                }
+            }
+        });
+    </script>
+    <footer class="site-footer">
+        <div class="container_foot">
+            <div class="footer-widgets">
+                <div class="widget about-changzheng">
+                    <h5>Long March Spirit</h5>
+                    <p>Long March route map</p>
+                </div>
+                <div class="widget useful-links">
+                    <h5>Useful Links</h5>
+                    <ul>
+                        <li><a href="#">Long March History</a>&nbsp&nbsp&nbsp<a href="#">Commemorative activities</a></li>
+                        <li><a href="#">Educational Resources</a>&nbsp&nbsp&nbsp<a href="#">cultural protection</a></li>
+                    </ul>
+                </div>
+                <div class="widget contact-info">
+                    <h5>Contact Us</h5>
+                    <p>Email：24124976g@connect.polyu.hk</p>
+                    <p>Phone：+86 123 4567 8901</p>
+                    <p>Adress：中国，香港，香港理工大学</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 肖邦. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</main>

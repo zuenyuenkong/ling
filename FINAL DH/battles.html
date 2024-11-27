@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="images/icon_DH.jpg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- css -->
+    <link href="css/tooplate-barista.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vegas.min.css" rel="stylesheet">
+    <link href="css/long_march.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+
+    <!-- js -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/vegas.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src='js/plotly.js'></script>
+    <script src="js/d3_v4.js"></script>
+    <script src="js/d3-scale.js"></script>
+    <script src="js/Homepage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- 引入 Leaflet CSS -->
+
+</head>
+<main>
+    <div class="navbar">
+        <a href="Main.html">Homepage</a>
+        <a href="longmarch.html">Longmarch</a>
+        <a href="battles.html" class="active">Battles</a>
+        <a href="heroes.html">Heroes</a>
+        <a href="artifacts.html">Artifacts</a>
+        <a href="spirit.html">Spirit</a>
+        <a href="about.html">About</a>
+    </div>
+
+
+    <section id="introduction" class="introduction-section">
+        <div class="introduction-content fade-in"
+            style="margin-bottom: 10px;display: flex;align-items: center;justify-content: flex-start;">
+            <div style="display: flex; /* 使用flex布局 */
+        overflow-x: auto; /* 如果内容超出屏幕宽度，允许水平滚动 */
+        padding: 10px; /* 容器内边距 */">
+                <a href="battles1.html">
+                    <div style="font-size: small; margin-right: 180px;flex: 0 0 auto;margin-left: 50px;">
+                        <img src="images/battles1.png" alt="" style="margin-right: 10px;  width: 200px;height: auto;/">
+                        <h2 style="font-size: medium; margin-top: 8px;">The Xiangjiang Campaign</h2>
+                    </div>
+                
+                <a href="battles2.html">
+                <div style="font-size: small; margin-right: 180px;flex: 0 0 auto;">
+                    <img src="images/battles2.png" alt="" style="margin-right: 10px;  width: 200px;height: auto;/">
+                    <h2 style="font-size: medium; margin-top: 8px;">The Four Crossings of the Chishui River Campaig</h2>
+                </div>
+            </a>
+            <a href="battles3.html">
+                <div style="font-size: small; margin-right: 150px;flex: 0 0 auto;">
+                    <img src="images/battles3.png" alt="" style="margin-right: 10px;  width: 200px;height: auto;/">
+                    <h2 style="font-size: medium; margin-top: 8px;">The Battle of Luding Bridge</h2>
+                </div>
+            </div>
+        </a>
+        </div>
+
+        <div class="introduction-content fade-in" style="margin-bottom: 10px;">
+            <h2>The Xiangjiang Campaign</h2>
+            <p>
+                During the period of the Land Revolution, the Central Red Army was engaged in a critical battle to break
+                through the fourth line of blockade established by the Kuomintang army in the Xiangjiang region of
+                northern Guangxi during their Long March.
+                <br><br>
+                The Xiangjiang Campaign was a battle that determined the life and death of the Central Red Army. From
+                November 27 to December 1, 1934, the Central Red Army fought fiercely for five days and nights against
+                the Kuomintang forces in the mountainous areas of Xing'an, Quanzhou, and Guanyang in Guangxi.
+                <img src="images/battles1.png" alt="">
+                <br>
+                Ultimately, they succeeded in crossing the Xiangjiang River between Quanzhou and Xing'an, thereby
+                breaking through the fourth line of blockade. This victory thwarted Chiang Kai-shek's attempt to
+                encircle and annihilate the Central Red Army east of the Xiangjiang River. However, this success came at
+                an enormous cost. The number of troops and personnel in the Central Committee plummeted from over 80,000
+                at the start of the Long March to just over 30,000.
+                <br><br>
+                The Xiangjiang Campaign was the most heroic and crucial battle since the Central Red Army began its
+                breakout. Our forces engaged in fierce combat against a numerically superior enemy, ultimately tearing
+                through the heavily fortified blockade line and dismantling Chiang Kai-shek’s plan to encircle the Red
+                Army east of the Xiangjiang. Although the Red Army managed to breach the fourth line of blockade, the
+                price paid was staggering. The 5th Corps and the newly formed International Brigade suffered over fifty
+                percent losses, while the 8th Corps faced even greater devastation. The 34th Division was heavily
+                surrounded, and its officers and soldiers fought valiantly until they ran out of ammunition and
+                supplies, resulting in the heroic sacrifice of the majority of their comrades. After crossing the
+                Xiangjiang River, the Central Red Army and the two divisions of the Military Commission had dwindled
+                from 86,000 at the start to just 30,000. This led to widespread doubt and dissatisfaction among many
+                cadres and soldiers regarding Wang Ming's military strategy, with increasing calls for a change in
+                leadership.
+                <br><br>
+                The bittersweet victory at the Xiangjiang directly resulted in the convening of an expanded meeting of
+                the Central Political Bureau in Zunyi (historically known as the “Zunyi Conference”). This meeting was
+                held when the Red Army was besieged and in dire straits, establishing the correct leadership of the new
+                Central Committee centered around Mao Zedong and affirming Mao's leadership within both the Red Army and
+                the Central Committee.
+            </p>
+        </div>
+
+        <div class="introduction-content fade-in" style="margin-bottom: 10px;">
+            <h2>The Four Crossings of the Chishui River Campaig</h2>
+            <p>
+                During the period of the Land Revolution, the Central Red Army engaged in a series of mobile warfare
+                battles against the Kuomintang forces in the basin of the Chishui River, located at the intersection of
+                Guizhou, Sichuan, and Yunnan provinces during their Long March.
+                <br><br>
+                <img src="images/battles2.png" alt="">
+                <br>
+                The Four Crossings of the Chishui River Campaign was a decisive mobile battle that took place after the
+                Zunyi Conference, amid the perilous circumstances of the Central Red Army being pursued and besieged by
+                hundreds of thousands of Kuomintang troops. Under the leadership of Mao Zedong, Zhou Enlai, and Zhu De,
+                the Red Army adopted a highly mobile strategy, maneuvering freely across the vast areas of the
+                Sichuan-Guizhou-Yunnan border. They actively sought opportunities for engagement, effectively mobilizing
+                and destroying enemy forces, and ultimately thwarted Chiang Kai-shek’s ambitious plan to encircle the
+                Red Army in this region. This campaign resulted in a strategically significant victory during their
+                retreat.
+                <br><br>
+                Over the course of three months, Mao Zedong directed the Central Red Army in six crossings of three
+                rivers, skillfully navigating between the encircled positions of the Kuomintang forces. By constantly
+                seizing opportunities for battle, they managed to inflict substantial losses on the enemy, firmly
+                establishing the initiative on the battlefield. This campaign stands as a brilliant example in the
+                history of the Long March, showcasing how a smaller force can triumph over a larger one, turning a
+                passive situation into an active one.
+            </p>
+        </div>
+
+        <div class="introduction-content fade-in" style="margin-bottom: 10px;">
+            <h2>The Battle of Luding Bridge</h2>
+            <p>
+                The Battle of Luding Bridge was a crucial engagement during the Long March of the Red Army, taking place
+                in May 1935. The context of this battle involved the Red Army's urgent need to cross the Dadu River to
+                escape relentless enemy pursuit, with Luding Bridge serving as a vital route to the enemy's rear.
+                <br><br>
+                At that time, the Red Army faced severe challenges; the enemy's blockade made crossing the river
+                extremely difficult. The bridge, narrow and dilapidated from years of weathering, was precariously weak.
+                However, its strategic importance could not be overlooked. The Red Army decided to take bold action,
+                aiming to seize the bridge before the enemy could respond.
+                <br>
+                <img src="images/battles3.png" alt="">
+                <br>
+                On May 29, 1935, Commander Deng Xiaoping ordered the assault. To ensure success, Red Army soldiers moved
+                under the cover of night, dividing into small groups to approach the bridge stealthily. The battle broke
+                out at dawn, with Red Army fighters using agile tactics to quickly ascend the bridge and engage in
+                fierce combat. Despite the enemy's attempts to defend it, they were swiftly repelled by the Red Army's
+                surprise attack and indomitable spirit.
+                <br><br>
+                Throughout the battle, the Red Army soldiers demonstrated extraordinary courage and tenacity. Facing a
+                hail of bullets, they pressed forward fearlessly, ultimately capturing Luding Bridge. This victory not
+                only created favorable conditions for the Red Army's subsequent maneuvers but also significantly boosted
+                morale, reinforcing the soldiers' confidence in the success of the Long March.
+            </p>
+        </div>
+
+        <div class="introduction-content fade-in"
+            style="margin-bottom: 10px;display: flex;align-items: center;justify-content: flex-start;">
+            <div>
+                <h2>The Ganzi Meeting of the Red Army</h2>
+            </div>
+            <div style="margin-right: 20px;"><img src="images/battles4.png" alt=""></div>
+            <div>
+                <p>
+                    On March 30, 1936, under the orders of Red Army Commander Zhu De and Political Commissar Zhang
+                    Guotao,
+                    the Second and Sixth Armies crossed the Jinsha River during their Long March. They endured harsh
+                    conditions as they traversed the towering Snow Mountains, and on July 2, they finally met up with
+                    the
+                    Fourth Front Army in Ganzi.
+                    <br><br>
+                    Upon receiving this news, the Central Committee directed the Second and Sixth Armies to merge into
+                    the
+                    Second Front Army, incorporating the 32nd Army as well. He Long was appointed as the overall
+                    commander,
+                    with Ren Bishi serving as the political commissar. At this time, although Zhang Guotao had disbanded
+                    his
+                    rival "central" authority, he still maintained a confrontational stance against the Central
+                    Committee.
+                    He attempted to enlist the newly united Second Front Army to support his misguided activities and
+                    proposals, but his efforts were met with strong resistance from the army’s leaders.
+                    <br><br>
+                    With the determined efforts of Zhu De, Liu Bocheng, Ren Bishi, He Long, and Guan Xiangying, the
+                    Second
+                    and Fourth Front Armies resolved to advance north together and reunite with the Central Committee
+                    and
+                    the First Front Army.
+
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="site-footer">
+        <div class="container_foot">
+            <div class="footer-widgets">
+                <div class="widget about-changzheng">
+                    <h5>Long March Spirit</h5>
+                    <p>Long March route map</p>
+                </div>
+                <div class="widget useful-links">
+                    <h5>Useful Links</h5>
+                    <ul>
+                        <li><a href="#">Long March History</a>&nbsp&nbsp&nbsp<a href="#">Commemorative activities</a>
+                        </li>
+                        <li><a href="#">Educational Resources</a>&nbsp&nbsp&nbsp<a href="#">cultural protection</a></li>
+                    </ul>
+                </div>
+                <div class="widget contact-info">
+                    <h5>Contact Us</h5>
+                    <p>Email：24124976g@connect.polyu.hk</p>
+                    <p>Phone：+86 123 4567 8901</p>
+                    <p>Adress：中国，香港，香港理工大学</p>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 肖邦. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</main>
